@@ -10,7 +10,7 @@ const passport = require("passport");       // ✅ ADD
 const initGooglePassport = require("./config/passport-google"); // ✅ ADD
 process.env.GOOGLE_CLIENT_ID = "39529139044-4ba55gjc17pgj329gum699ronfm65u7c.apps.googleusercontent.com";
 process.env.GOOGLE_CLIENT_SECRET = "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";
-process.env.GOOGLE_CALLBACK_URL = "http://127.0.0.1:3000/auth/google/callback";
+process.env.GOOGLE_CALLBACK_URL = "https://quanan1.onrender.com/auth/google/callback";
 mongoose.connect(uri, { serverSelectionTimeoutMS: 10000 })
     .then(() => console.log("Mongo connected"))
     .catch(err => console.log("Mongo connect error:", err.message));
