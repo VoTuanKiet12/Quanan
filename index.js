@@ -7,10 +7,7 @@ const expressLayouts = require("express-ejs-layouts");
 const uri = "mongodb+srv://quanly:kiet123@cluster0.dvwumew.mongodb.net/quanan?retryWrites=true&w=majority&appName=Cluster0";
 // ✅ ADD
 const passport = require("passport");       // ✅ ADD
-const initGooglePassport = require("./config/passport-google"); // ✅ ADD
-process.env.GOOGLE_CLIENT_ID = "39529139044-4ba55gjc17pgj329gum699ronfm65u7c.apps.googleusercontent.com";
-process.env.GOOGLE_CLIENT_SECRET = "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";
-process.env.GOOGLE_CALLBACK_URL = "https://monthaingonthaiaroma.onrender.com/auth/google/callback";
+
 mongoose.connect(uri, { serverSelectionTimeoutMS: 10000 })
     .then(() => console.log("Mongo connected"))
     .catch(err => console.log("Mongo connect error:", err.message));
@@ -33,7 +30,7 @@ app.use(session({
     // cookie: { maxAge: 1000 * 60 * 60 * 24 } // tuỳ chọn
 }));
 app.use(passport.initialize());
-initGooglePassport();
+
 app.use(async (req, res, next) => {
     res.locals.session = req.session;
     res.locals.cartCount = Number(req.session?.cartCount || 0);
